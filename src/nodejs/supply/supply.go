@@ -316,7 +316,7 @@ func (s *Supplier) ReadPackageJSON() error {
 			StartScript string `json:"start"`
 		} `json:"scripts"`
 		DevDependencies map[string]string `json:"devDependencies"`
-		Workspaces      []string          `json:"workspaces"`
+		Workspaces      map[string][]string          `json:"workspaces"`
 	}
 
 	if s.UseYarn, err = libbuildpack.FileExists(filepath.Join(s.Stager.BuildDir(), "yarn.lock")); err != nil {
